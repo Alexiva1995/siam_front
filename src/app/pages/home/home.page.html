@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-slides pager="true" class="pager-right" *ngIf="slides?.length">
+    <ion-slide *ngFor="let slide of slides">
+      <full-banner
+                   [image]="slide.image"
+                   [caption]="slide.caption"
+                   [title]="slide.title"
+                   [short]="slide.description_short"
+                   [link]="slide.link"></full-banner>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="ion-padding">
+    <ng-container *ngIf="!user">
+      <h2 class="separator-title vip">
+        <span class="icon card"></span>
+        {{ 'MEMBRESÍA VIP' | translate }}
+      </h2>
+      <div class="membership-card">
+        <img src="../../assets/card-logo.svg" alt="">
+        <h2>{{ '1234567812345678' | cardFormat }}</h2>
+        <h4>{{ 'Cliente VIP' | translate }}</h4>
+        <h3>{{ 'Tu Nombre y Apellido' | translate }}</h3>
+      </div>
+
+      <div class="spacer"></div>
+
+      <button class="super vip" [routerLink]="['/register']" routerDirection="root">
+        <span class="icon card"></span>
+        {{ 'Regístrate para obtenerla' | translate }}
+      </button>
+
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+    </ng-container>
+
+    <discounts type="slider" [vip]="true"></discounts>
+
+    <discounts type="slider"></discounts>
+
+    <stores type="slider"></stores>
+
+    <events type="slider"></events>
+
+    <news type="slider"></news>
+
+    <services [vip]="true"></services>
+
+    <services></services>
+  </div>
+</ion-content>

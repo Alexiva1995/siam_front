@@ -1,0 +1,49 @@
+<ng-container *ngIf="news && type == 'slider'">
+  <h2 class="separator-title gray">
+    <span class="icon news"></span>
+    {{ 'NOTICIAS' | translate }}
+  </h2>
+  <ion-slides [options]="{spaceBetween: 10}" class="overflow">
+    <ion-slide *ngFor="let item of news">
+      <block
+             (click)="gotoDetail(item)"
+             type="rectangle"
+             tint="#333333"
+             [image]="item.image"
+             [short]="item.caption"
+             [title]="item.title"
+             [caption]="item.description"
+             (onSaveFav)="saveFav(item)"
+             [fav]="item.user_fav"
+             [favorite]="false"></block>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="spacer"></div>
+
+  <button class="super" [routerLink]="['/tabs/news']">
+    <span class="icon news"></span>
+    {{ 'Ver todas las noticias' | translate }}
+  </button>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+</ng-container>
+
+<ng-container *ngIf="type == 'list'">
+  <ng-container *ngFor="let item of news">
+    <block
+           (click)="gotoDetail(item)"
+           tint="#333333"
+           [image]="item.image"
+           [short]="item.caption"
+           shortBackgroundColor="#08FFD8"
+           [title]="item.title"
+           [caption]="item.description"
+           (onSaveFav)="saveFav(item)"
+           [fav]="item.user_fav"
+           [favorite]="false"></block>
+
+    <div class="spacer"></div>
+  </ng-container>
+</ng-container>

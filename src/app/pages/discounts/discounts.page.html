@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+
+  <header
+          backgroundImage="discounts_header.jpg"
+          tint="rgba(0,0,0,0.65)"></header>
+  <!-- ALEMAR -->
+  <!-- [caption]="{iconClass: 'discount',color: '#626262',backgroundColor: '#FFFFFF'}" -->
+
+  <div class="ion-padding">
+    <h1 class="title" fittext compression="0.9" maxFontSize="50">{{ 'PROMOCIONES' | translate }}</h1>
+    <h2 class="subtitle">{{ 'DESCUBRE LAS PROMOCIONES Y REBAJAS DISPONIBLES AQUÍ' | translate }}</h2>
+
+    <!-- <button class="super small arrow-down">
+      ORDENAR POR: % PROMOCIÓN
+    </button> -->
+
+
+    <discounts type="slider" [vip]="true" *ngIf="!user"></discounts>
+    <discounts type="list" [vip]="true" *ngIf="user"></discounts>
+
+    <div class="spacer"></div>
+
+    <discounts type="list"></discounts>
+
+    <div class="spacer"></div>
+
+    <stores type="slider"></stores>
+  </div>
+</ion-content>

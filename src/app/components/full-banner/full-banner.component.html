@@ -1,0 +1,10 @@
+<div class="container" [class.welcome]="type == 'welcome'" [ngStyle]="{'background-image': 'url(' + image + ')'}">
+  <div class="block">
+    <img *ngIf="type == 'welcome'" src="../../assets/welcome-logo.svg" class="welcome-logo">
+    <h4 [innerHTML]="caption"></h4>
+    <h2 fittext compression="1.6" maxFontSize="62" [innerHTML]="title"></h2>
+    <h3 [class.empty]="!short" [innerHTML]="short"></h3>
+  </div>
+  <button *ngIf="link" class="see-more" [routerLink]="[link]">{{ 'VER MÁS' | translate }}</button>
+  <button *ngIf="type == 'welcome'" class="next">{{ 'SIGUIENTE' | translate }}</button>
+</div>

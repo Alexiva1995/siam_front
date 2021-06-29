@@ -1,0 +1,29 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+  <header
+          [backgroundImage]="news?.image"
+          tint="rgba(236,0,26,0.9)"
+          [fav]="news?.user_fav"
+          [favorite]="false"
+          (onSaveFav)="saveFav(news)"
+          (onShare)="doShare()"></header>
+  <!-- ALEMAR -->
+  <!-- [share]="news?.share_url"
+  [caption]="{text: news?.caption,color: '#626262',backgroundColor: '#FFFFFF'}" -->
+
+  <div class="ion-padding" *ngIf="news">
+    <h1 class="title ion-text-uppercase" fittext compression="1.3" maxFontSize="50">{{ news.title }}</h1>
+    <h2 class="subtitle option3 ion-text-uppercase">{{ news.description }}</h2>
+
+    <p [innerHTML]="news.long_text | nl2br"></p>
+
+    <a (click)="goBack()" class="back">
+      {{ 'VOLVER' | translate }}
+      <img src="../../assets/icon/back-arrow.svg">
+    </a>
+  </div>
+</ion-content>

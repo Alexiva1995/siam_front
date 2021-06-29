@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+
+  <header
+          backgroundImage="stores_header.jpg"
+          tint="rgba(0,0,0,0.65)"
+          [share]="false">
+  </header>
+  <!-- ALEMAR -->
+  <!-- [caption]="{iconClass: 'store',color: '#626262',backgroundColor: '#FFFFFF'}" -->
+
+  <div class="ion-padding">
+    <h1 class="title full-line">{{ 'TIENDAS' | translate }}</h1>
+    <input type="text" class="search" placeholder="{{ 'BUSCAR' | translate }}" [(ngModel)]="inputSearch">
+
+    <div class="btn-container">
+      <ion-select
+                  value="0"
+                  [cancelText]="'Cancelar' | translate"
+                  [hidden]="true"
+                  [interfaceOptions]="customAlertOptions"
+                  #categoryList
+                  (ionChange)="setCategory()">
+        <ion-select-option value="{{ category.id }}" *ngFor="let category of categories">{{ category.title }}</ion-select-option>
+        <!-- <ion-select-option value="0">VER TODAS</ion-select-option> -->
+      </ion-select>
+
+      <button class="super small arrow-down" (click)="openCategorySelector()">
+        {{ category?.title | uppercase }}
+      </button>
+
+      <button class="super small" [class.arrow-down]="direction == 'ASC'" [class.arrow-up]="direction == 'DESC'" (click)="toggleOrder()">
+        {{ 'ORDEN ALFABÉTICO' | translate}}
+      </button>
+    </div>
+
+    <div class="spacer"></div>
+
+    <stores type="list" [direction]="direction" [search]="inputSearch" [category]="category"></stores>
+  </div>
+</ion-content>

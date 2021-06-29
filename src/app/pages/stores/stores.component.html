@@ -1,0 +1,54 @@
+<ng-container *ngIf="stores && type == 'slider'">
+  <h2 class="separator-title gray">
+    <span class="icon store"></span>
+    <ng-container *ngIf="!only_favs">
+      {{ 'NUESTRAS TIENDAS' | translate }}
+    </ng-container>
+    <ng-container *ngIf="only_favs">
+      {{ 'TIENDAS FAVORITAS' | translate }}
+    </ng-container>
+    <div class="arrow"></div>
+  </h2>
+  <ion-slides [options]="{spaceBetween: 10, slidesPerView: 3}" class="overflow">
+    <ng-container *ngFor="let store of stores">
+      <ion-slide *ngIf="!only_favs || store.user_fav">
+        <block
+               *ngIf="store.match_search_criteria !== false"
+               (click)="gotoDetail(store)"
+               [image]="store.logo ? store.logo : (store.images ? store.images[0] : undefined)"
+               type="circle"
+               (onSaveFav)="saveFav(store)"
+               [fav]="store.user_fav"
+               [favorite]="true"></block>
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+
+  <div class="spacer"></div>
+
+  <button class="super" [routerLink]="['/tabs/stores']">
+    <span class="icon store"></span>
+    {{ 'Ver todas las tiendas' | translate }}
+  </button>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+</ng-container>
+
+<ng-container *ngIf="stores && type == 'list'">
+  <ng-container *ngFor="let store of stores">
+    <block
+           *ngIf="store.match_search_criteria !== false"
+           (click)="gotoDetail(store)"
+           type="circle-extended"
+           [title]="store.name"
+           [short]="store.description_short"
+           [caption]="store.location"
+           [image]="store.logo ? store.logo : (store.images ? store.images[0] : undefined)"
+           (onSaveFav)="saveFav(store)"
+           [fav]="store.user_fav"
+           [favorite]="true"></block>
+
+    <div class="spacer" *ngIf="store.match_search_criteria !== false"></div>
+  </ng-container>
+</ng-container>

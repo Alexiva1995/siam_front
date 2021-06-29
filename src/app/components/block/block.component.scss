@@ -1,0 +1,218 @@
+.rect-container {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    width: 100%;
+
+    &.square {
+        height: 92vw;
+    }
+    &.rectangle {
+        height: 65vw;
+    }
+    &.mini-rectangle {
+        height: 39vw;
+        width: 65vw;
+        img {
+            position: absolute;
+            z-index: 1;
+            top: 20px;
+            left: 20px;
+        }
+    }
+    &.rectangle2 {
+        height: 40vw;
+        width: 100%;
+        img {
+            position: absolute;
+            z-index: 1;
+            top: 20px;
+            left: 20px;
+        }
+    }
+
+    .gradient {
+        position: absolute;
+        width: 100%;
+        height: 75%;
+        left: 0;
+        bottom: -10px;
+    }
+    &.mini-rectangle,
+    &.rectangle2 {
+        .gradient {
+            height: 110%;
+            mix-blend-mode: normal;
+        }
+    }
+    .icons {
+        position: absolute;
+        right: 21px;
+        top: 21px;
+        button {
+            margin-left: 8px;
+        }
+    }
+    .block {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 30px 22px;
+    }
+    &.mini-rectangle,
+    &.rectangle2 {
+        .block {
+            padding: 15px 22px;
+        }
+    }
+    h2 {
+        font-family: "Nunito";
+        font-weight: normal;
+        font-size: 26px;
+        color: #ffffff;
+        margin: 0 0 13px;
+        letter-spacing: 0.02em;
+        line-height: 30px;
+    }
+    h3 {
+        font-family: "Nunito";
+        font-weight: normal;
+        font-size: 12px;
+        color: #ffffff;
+        letter-spacing: 0.06em;
+        margin: 0;
+        text-transform: uppercase;
+    }
+    h4 {
+        font-family: "Nunito SemiBold";
+        font-weight: normal;
+        font-size: 10px;
+        position: absolute;
+        margin: 0;
+        left: 22px;
+        top: 22px;
+        color: #626262;
+        padding: 9px 18px 8px;
+        border-radius: 20px;
+        text-transform: uppercase;
+    }
+    &.lock {
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: #313131;
+            opacity: 0.8;
+            z-index: 10;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #c9a456;
+            z-index: 12;
+            mask-image: url("/assets/icon/lock.svg");
+            mask-size: 20px;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+        }
+    }
+    &.square,
+    &.rectangle {
+        &.lock:after {
+            mask-size: 30px;
+        }
+    }
+}
+.icons {
+    button {
+        background: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        font-size: 20px;
+        padding: 5px 0 0;
+    }
+}
+
+.circle-container {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background-color: rgba(82, 82, 82, 0.2);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+
+    .icons {
+        button {
+            background: rgba(82, 82, 82, 0.3);
+        }
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.circle-extended-container {
+    display: flex;
+    .picture {
+        flex-shrink: 0;
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        background-color: rgba(82, 82, 82, 0.2);
+        position: relative;
+        background-size: cover;
+        background-position: center center;
+
+        .icons {
+            button {
+                background: rgba(82, 82, 82, 0.3);
+            }
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+    .content {
+        margin: 10px 0 0 20px;
+        h2 {
+            font-family: "Nunito SemiBold";
+            font-size: 16px;
+            font-weight: normal;
+            color: #626262;
+            text-decoration: underline;
+            margin: 0 0 8px;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-family: "Nunito";
+            font-size: 12px;
+            font-weight: normal;
+            color: #626262;
+            margin: 0 0 8px;
+        }
+        h4 {
+            font-family: "Nunito SemiBold";
+            font-size: 10px;
+            font-weight: normal;
+            color: #94a0a2;
+            margin: 0;
+            background: url("/assets/icon/marker.svg") left center no-repeat;
+            padding-left: 14px;
+            text-transform: uppercase;
+        }
+    }
+}

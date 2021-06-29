@@ -1,0 +1,21 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+  <header
+          [backgroundImage]="service?.image"
+          tint="rgba(0,0,0,0.65)"
+          (onShare)="doShare()"
+          [favorite]="false"></header>
+  <!-- ALEMAR -->
+  <!-- [share]="service?.share_url" -->
+  <!-- [caption]="{iconClass: 'mall',color: '#626262',backgroundColor: '#FFFFFF'}" -->
+
+  <div class="ion-padding test" *ngIf="service">
+    <h1 class="title full-line" fittext compression="1.6" maxFontSize="50" [innerHTML]="service.title"></h1>
+
+    <p [innerHTML]="service.description | nl2br"></p>
+  </div>
+</ion-content>

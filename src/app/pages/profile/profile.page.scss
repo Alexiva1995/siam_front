@@ -1,0 +1,38 @@
+.membership-card {
+    width: 90vw;
+    margin-left: 5vw;
+    margin-top: -60px;
+
+    h3 {
+        text-transform: uppercase;
+    }
+}
+
+form {
+    ion-list {
+        ion-item {
+            border-top: 1px solid #626262;
+            ion-label {
+                font-family: "Nunito SemiBold";
+                font-size: 11px;
+                color: #94a0a2;
+            }
+            ion-input {
+                font-family: "Nunito";
+                font-size: 16px;
+                color: #626262;
+                &[type="text"] {
+                    text-transform: uppercase;
+                }
+            }
+            button.discover {
+                color: #626262;
+                background: none;
+                font-size: 26px;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+}

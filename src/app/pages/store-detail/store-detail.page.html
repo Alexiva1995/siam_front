@@ -1,0 +1,33 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+  <!-- [share]="store?.share_url"
+  [caption]="{iconClass: 'pictures',color: '#FFFFFF',backgroundColor: ''}" -->
+  <header
+          [gallery]="store?.images"
+          tint="rgba(0,0,0,0.65)"
+
+          [fav]="store?.user_fav"
+          [favorite]="user ? true : false"
+          (onSaveFav)="saveFav(store)"
+          (onShare)="doShare()"></header>
+
+  <div class="ion-padding" *ngIf="store">
+    <h1 class="title full-line ion-text-uppercase">{{ store.name }}</h1>
+
+    <div class="label-container">
+      <label class="light ion-text-uppercase"><span class="marker"></span> {{ store.location }}</label>
+      <label class="light" *ngIf="store.hour_from || store.hour_to"><span class="time"></span> {{ store.hour_from | timetable }}{{ store.hour_from && store.hour_to ? ' - ' : '' }}{{ store.hour_to | timetable }}</label>
+      <label *ngIf="store.phone_number"><a href="tel:{{ store.phone_number }}"><span class="phone"></span> {{ store.phone_number }}</a></label>
+      <label *ngIf="store.url" class="ion-text-uppercase"><a href="{{ store.url }}"><span class="world"></span> {{ store.url | shortDomain }}</a></label>
+    </div>
+
+    <div class="spacer"></div>
+
+    <h2 class="subtitle option2 ion-text-uppercase" [innerHTML]="store.description_short | nl2br"></h2>
+    <p [innerHTML]="store.description | nl2br"></p>
+  </div>
+</ion-content>

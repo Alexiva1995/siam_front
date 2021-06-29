@@ -1,0 +1,53 @@
+<div *ngIf="type == 'square' || type == 'rectangle'" class="rect-container {{ type }}" [ngStyle]="image ? {'background-image': 'url(' + image + ')'} : undefined" [class.fav]="fav" [class.lock]="disabled">
+  <div *ngIf="!disabled" class="gradient" [ngStyle]="{'background': 'linear-gradient(0deg, ' + tint + ' 10%, rgba(0,0,0,0) 100%)'}"></div>
+  <h4 [innerHTML]="short" [ngStyle]="{'background-color': shortBackgroundColor}" *ngIf="short"></h4>
+  <div class="icons">
+    <button *ngIf="favorite" class="icon-fav" (click)="saveFav($event)">
+      <ion-icon name="{{ fav ? 'heart' : 'heart-outline' }}"></ion-icon>
+    </button>
+    <!-- <button><ion-icon name="share-social-outline"></ion-icon></button> -->
+  </div>
+  <div class="block">
+    <h2 [innerHTML]="title"></h2>
+    <h3 [innerHTML]="caption"></h3>
+  </div>
+</div>
+
+<div *ngIf="type == 'circle'" class="circle-container" [class.fav]="fav" [ngStyle]="image ? {'background-image': 'url(' + image + ')'} : undefined">
+  <div class="icons" *ngIf="user">
+    <button *ngIf="favorite" class="icon-fav" (click)="saveFav($event)">
+      <ion-icon name="{{ fav ? 'heart' : 'heart-outline' }}"></ion-icon>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="type == 'circle-extended'" class="circle-extended-container" [class.fav]="fav">
+  <div class="picture" [ngStyle]="image ? {'background-image': 'url(' + image + ')'} : undefined">
+    <div class="icons" *ngIf="user">
+      <button *ngIf="favorite" class="icon-fav" (click)="saveFav($event)">
+        <ion-icon name="{{ fav ? 'heart' : 'heart-outline' }}"></ion-icon>
+      </button>
+    </div>
+  </div>
+  <div class="content">
+    <h2 [innerHTML]="title"></h2>
+    <h3 [innerHTML]="short"></h3>
+    <h4 [innerHTML]="caption"></h4>
+  </div>
+</div>
+
+<div *ngIf="type == 'mini-rectangle'" class="rect-container {{ type }}" [class.lock]="disabled" [ngStyle]="{'background-image': 'url(' + image + ')'}">
+  <img *ngIf="icon" [src]="icon">
+  <div class="gradient" [ngStyle]="{'background': 'linear-gradient(45deg, ' + tint + ' 25%, rgba(0,0,0,0.3) 100%)'}"></div>
+  <div class="block">
+    <h3 [innerHTML]="title" [ngStyle]="{'color': color}"></h3>
+  </div>
+</div>
+
+<div *ngIf="type == 'rectangle2'" class="rect-container {{ type }}" [ngStyle]="{'background-image': 'url(' + image + ')'}">
+  <img *ngIf="icon" [src]="icon">
+  <div class="gradient" [ngStyle]="{'background': 'linear-gradient(90deg, ' + tint + ' 30%, rgba(0,0,0,0.3) 100%)'}"></div>
+  <div class="block">
+    <h3 [innerHTML]="title" [ngStyle]="{'color': color}"></h3>
+  </div>
+</div>

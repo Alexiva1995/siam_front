@@ -1,0 +1,46 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+  <header
+          [backgroundImage]="event?.image"
+          tint="rgba(236,0,26,0.9)"
+          [favorite]="false"
+          (onShare)="doShare()"></header>
+  <!-- ALEMAR
+  [share]="event?.share_url"
+  [caption]="{text: event?.caption,color: '#626262',backgroundColor: '#FFFFFF'}" -->
+
+  <div class="ion-padding" *ngIf="event">
+    <h1 class="title ion-text-uppercase" fittext compression="2.4" maxFontSize="50">{{ event.title }}</h1>
+    <h2 class="subtitle option3 ion-text-uppercase">{{ event.description }}</h2>
+
+    <button class="super cyan" *ngIf="user && !event.user_subscribed" (click)="subscribeToEvent()">
+      <span class="icon event"></span>
+      {{ 'Confirmar asistencia' | translate }}
+    </button>
+
+    <button class="super no-arrow" *ngIf="user && event.user_subscribed" (click)="unsubscribe()">
+      <span class="icon event"></span>
+      {{ 'Asistencia confirmada' | translate }}
+    </button>
+
+    <button class="super cyan" *ngIf="!user" [routerLink]="['/login']" routerDirection="root">
+      <span class="icon unlock"></span>
+      {{ 'Ingresa para confirmar asistencia' | translate }}
+    </button>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    <p [innerHTML]="event.long_text | nl2br"></p>
+    <img src="../../assets/icon/separator.svg" class="separator">
+    <p class="smaller" [innerHTML]="event.short_text | nl2br"></p>
+    <a (click)="goBack()" class="back">
+      {{ 'VOLVER' | translate }}
+      <img src="../../assets/icon/back-arrow.svg">
+    </a>
+  </div>
+</ion-content>

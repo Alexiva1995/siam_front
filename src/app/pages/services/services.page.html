@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+
+  <header
+          backgroundImage="services_header@2x.jpg"
+          tint="rgba(0,0,0,0.65)"
+          [share]="false"
+          [favorite]="false"></header>
+  <!-- ALEMAR -->
+  <!-- [caption]="{iconClass: 'mall',color: '#626262',backgroundColor: '#FFFFFF'}" -->
+
+  <div class="ion-padding">
+    <h1 class="title full-line">{{ 'SERVICIOS' | translate }}</h1>
+    <h2 class="subtitle">{{ 'El Centro cuenta con una serie de servicios que facilitarán en todo momento tu visita. Cualquier consulta que necesites no dudes ponerte en contacto con nuestro personal del centro. Estaremos felices de ayudarle.' | translate }}</h2>
+
+    <services [vip]="true" [type]="user ? 'list' : 'slider'"></services>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    <services type="list"></services>
+
+  </div>
+</ion-content>

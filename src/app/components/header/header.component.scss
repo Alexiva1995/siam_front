@@ -1,0 +1,83 @@
+.container {
+    position: relative;
+
+    .backgroundImage {
+        background-position: center center;
+        background-size: cover;
+        height: 78vh;
+    }
+    .gradient {
+        position: absolute;
+        width: 100%;
+        height: 75%;
+        left: 0;
+        bottom: 0;
+        &.profile {
+            height: 40%;
+        }
+    }
+    .caption {
+        z-index: 1;
+        margin: 0;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        padding: 8px;
+        border-radius: 20px;
+        display: flex;
+        font-family: "Nunito SemiBold";
+        font-size: 10px;
+        min-height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+
+        &.with-text {
+            padding: 8px 16px;
+        }
+
+        .icon {
+            mask-position: center center;
+            mask-repeat: no-repeat;
+
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+
+            &.discount {
+                mask-image: url("/assets/icon/discount.svg");
+            }
+        }
+    }
+    .backgroundProfileImage {
+        background-position: center center;
+        background-size: cover;
+        height: 45vh;
+    }
+    button.caption {
+        bottom: 60px;
+        background: none;
+        border: 1px solid #ffffff;
+        .icon {
+            background-color: #ffffff;
+        }
+    }
+
+    .icons {
+        button {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 20px;
+            padding: 4px 0 0;
+            margin-left: 8px;
+        }
+        position: absolute;
+        z-index: 1;
+        bottom: 30px;
+        right: 30px;
+    }
+}

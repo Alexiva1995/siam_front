@@ -1,0 +1,51 @@
+<ng-container *ngIf="events && type == 'slider'">
+  <h2 class="separator-title gray">
+    <span class="icon event"></span>
+    <ng-container *ngIf="!only_favs">
+      {{ 'EVENTOS' | translate }}
+    </ng-container>
+    <ng-container *ngIf="only_favs">
+      {{ 'MIS EVENTOS' | translate }}
+    </ng-container>
+  </h2>
+  <ion-slides [options]="{spaceBetween: 10}" class="overflow">
+    <ng-container *ngFor="let event of events">
+      <ion-slide *ngIf="!only_favs || event.user_subscribed">
+        <block
+               (click)="gotoDetail(event)"
+               type="rectangle"
+               tint="#333333"
+               [image]="event.image"
+               [short]="event.caption"
+               shortBackgroundColor="#08FFD8"
+               [title]="event.title"
+               [caption]="event.description"></block>
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+
+  <div class="spacer"></div>
+
+  <button class="super cyan" [routerLink]="['/tabs/events']">
+    <span class="icon event"></span>
+    {{ 'Ver todos los eventos' | translate }}
+  </button>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+</ng-container>
+
+<ng-container *ngIf="type == 'list'">
+  <ng-container *ngFor="let event of events">
+    <block
+           (click)="gotoDetail(event)"
+           tint="#333333"
+           [image]="event.image"
+           [short]="event.caption"
+           shortBackgroundColor="#08FFD8"
+           [title]="event.title"
+           [caption]="event.description"></block>
+
+    <div class="spacer"></div>
+  </ng-container>
+</ng-container>

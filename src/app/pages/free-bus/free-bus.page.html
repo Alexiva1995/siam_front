@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+  
+  <google-maps [travel]="travel"></google-maps>
+
+  <div class="ion-padding">
+    <div class="selector-container">
+      <button class="route1" [class.active]="selectedRoute == 0" (click)="selectRoute(0)">{{ 'RUTA' | translate }} 1</button>
+      <button class="route2" [class.active]="selectedRoute == 1" (click)="selectRoute(1)">{{ 'RUTA' | translate }} 2</button>
+      <button class="route3" [class.active]="selectedRoute == 2" (click)="selectRoute(2)">{{ 'RUTA' | translate }} 3</button>
+      <button class="route4" [class.active]="selectedRoute == 3" (click)="selectRoute(3)">{{ 'RUTA' | translate }} 4</button>
+    </div>
+  
+    <h1>{{ routes[selectedRoute]?.title }}</h1>
+  
+    <div class="hours">
+      <i class="clock"></i>
+      <span [innerHTML]="routes[selectedRoute]?.schedule"></span>
+    </div>
+  
+    <h2>{{ 'PARADAS' | translate }}</h2>
+
+    <ul>
+      <li *ngFor="let stop of routes[selectedRoute]?.points">{{ stop.label }}</li>
+    </ul>
+
+    <p class="conditions">{{ 'Condiciones del servicio' | translate }}<br>
+      -<br>
+      {{ 'Servicio solo disponible para clientes del Siam Mall. Servicio sujero a disponibilidad de plazas y buses. Los horarios corresponden a la salida de la primera parada. Conserve su ticket para el regreso.' | translate }}</p>
+  </div>
+</ion-content>

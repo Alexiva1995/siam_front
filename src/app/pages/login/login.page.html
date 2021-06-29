@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="welcome-container" style="background-image:url('../../assets/login_header.jpg')">
+    <div class="header-section">
+      <img src="../../assets/login-logo.svg" alt="">
+    </div>
+    <div>
+      <!-- <p>Ingresa con</p> -->
+      <p>Puedes ingresar con</p>
+      <!-- <button class="big white" (click)="doGoogleLogin()">Gmail <img src="../../assets/google.svg"></button>
+      <button class="big blue" (click)="doFbLogin()">Facebook <img src="../../assets/facebook.svg"></button> -->
+      <button class="big black" (click)="doAppleLogin()" *ngIf="app.showSingApple">Apple <img src="../../assets/apple.svg" class="mb"></button>
+      <button class="big" [routerLink]="['/login-with-mail']">Email</button>
+    </div>
+    <div class="bottom-section">
+      <p><a class="guest" [routerLink]="['/register']" [innerHTML]="'No tienes cuenta? <strong>Regístrate</strong>' | translate"></a></p>
+      <p><a class="guest" [routerLink]="['/tabs/home']" routerDirection="root" [innerHTML]="'Entrar como <strong>invitado</strong>' | translate"></a></p>
+      <p class="bottom">{{ 'Continuar implica que has leído y aceptado la' | translate }}<br><a class="underline" href="https://ccsiammall.com/politica-de-privacidad-y-proteccion-de-datos/">{{ 'Política de privacidad' | translate }}</a>.</p>
+    </div>
+  </div>
+</ion-content>

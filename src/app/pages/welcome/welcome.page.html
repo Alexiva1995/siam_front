@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="welcome-container" style="background-image:url('../../assets/login_header.jpg')">
+    <div class="header-section">
+      <img src="../../assets/login-logo.svg" alt="">
+    </div>
+    <div>
+      <button class="big white" [routerLink]="['/register']">{{ 'Regístrate' | translate }}</button>
+      <button class="big" [routerLink]="['/login']">Entrar con tu cuenta</button>
+    </div>
+    <div class="bottom-section">
+      <a class="guest" [routerLink]="['/tabs/home']" routerDirection="root" [innerHTML]="'Entrar como <strong>invitado</strong>' | translate"></a>
+      <p class="bottom">{{ 'Continuar implica que has leído y aceptado la' | translate }}<br><a class="underline" href="https://ccsiammall.com/politica-de-privacidad-y-proteccion-de-datos/">{{ 'Política de privacidad' | translate }}</a>.</p>
+    </div>
+  </div>
+</ion-content>

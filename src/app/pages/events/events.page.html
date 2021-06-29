@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+
+  <header
+          backgroundImage="portada_eventos.jpg"
+          tint="rgba(0,0,0,0.65)"></header>
+  <!-- ALEMAR -->
+  <!-- [caption]="{iconClass: 'event',color: '#626262',backgroundColor: '#FFFFFF'}" -->
+
+  <div class="ion-padding">
+    <h1 class="title">{{ 'EVENTOS' | translate }}</h1>
+    <h2 class="subtitle">{{ 'Mensualmente la agenda del Centro Comercial Siam Mall ofrece a sus visitantes actividades gratuitas para toda la familia. Creando un espacio donde los clientes no solo pueden hacer sus compras, también pueden divertirse' | translate }}</h2>
+
+    <events type="list"></events>
+  </div>
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-app>
+  <ion-menu side="end" content-id="main-content">
+    <ion-content>
+      <div class="box">
+        <div>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="language-selector">
+                  <button class="language" [class.active]="languageService.language == 'en'" (click)="changeLanguage('en')"><span class="icon world"></span>ENG</button>
+                  <button class="language" [class.active]="languageService.language == 'es'" (click)="changeLanguage('es')"><span class="icon world"></span>ESP</button>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <button class="back" (click)="close()"></button>
+        </div>
+
+        <div>
+          <img src="../assets/logo.svg" class="logo" alt="">
+          <ion-list lines="none">
+            <ion-item *ngIf="user" [routerLink]="['/tabs/profile']" (click)="close()" detail="false">
+              <ion-label>{{ 'PERFIL' | translate }}</ion-label>
+            </ion-item>
+            <!-- <ion-item *ngIf="!user" [routerLink]="['/login']" routerDirection="root" (click)="close()" detail="false"> -->
+            <ion-item *ngIf="!user" [routerLink]="['/login']" routerDirection="root" (click)="close()" detail="false">
+              <ion-label>{{ 'ENTRAR' | translate }}</ion-label>
+            </ion-item>
+            <!-- <ion-item class="disabled">
+              <ion-label>MAPA BUS</ion-label>
+            </ion-item> -->
+            <ion-item [routerLink]="['/tabs/discounts']" (click)="close()" detail="false">
+              <ion-label>{{ 'PROMOCIONES' | translate }}</ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/tabs/stores']" (click)="close()" detail="false">
+              <ion-label>{{ 'TIENDAS' | translate }}</ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/tabs/events']" (click)="close()" detail="false">
+              <ion-label>{{ 'EVENTOS' | translate }}</ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/tabs/news']" (click)="close()" detail="false">
+              <ion-label>{{ 'NOTICIAS' | translate }}</ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/tabs/services']" (click)="close()" detail="false">
+              <ion-label>{{ 'SERVICIOS' | translate }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div class="bottom">
+          <div class="label-container">
+            <label class="white full"><a href="https://maps.app.goo.gl/sov8miUyPjXaAUvg8"><span class="marker"></span> AV. SIAM, 3, 38670, COSTA ADEJE</a></label>
+            <label class="white full"><a href="tel:+34922750252"><span class="phone"></span> +34 922750252</a></label>
+            <label class="white full"><a href="mailto:info@siammall.com"><span class="email"></span> INFO@CCSIAMMALL.COM</a></label>
+            <label class="white half"><a href="https://www.instagram.com/siammalltenerife/" target="_blank">INSTAGRAM</a></label>
+            <label class="white half"><a href="https://www.facebook.com/SiamMallTenerife" target="_blank">FACEBOOK</a></label>
+            <label class="white half"><a href="https://www.youtube.com/channel/UC6GYXarqXf2EJOw8_jmnRuw" target="_blank">YOUTUBE</a></label>
+            <label class="white half"><a href="https://twitter.com/SiamMallTF" target="_blank">TWITTER</a></label>
+          </div>
+
+          <div class="version-container">
+            <span *ngIf="version">v{{ version }}</span>
+            <span *ngIf="build">({{ build }})</span>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <!-- ALEMAR -->
+  <!-- <profile-shortcut></profile-shortcut> -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app>

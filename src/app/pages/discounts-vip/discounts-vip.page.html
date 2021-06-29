@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <header
+          backgroundImage="discounts_vip_header.jpg"
+          tint="rgba(0,0,0,0.65)"></header>
+  <!-- ALEMAR -->
+  <!-- [caption]="{iconClass: 'discount',color: '#FFFFFF',backgroundColor: '#A88336'}" -->
+
+  <div class="ion-padding">
+    <h1 class="title">PROMOCIONES VIP</h1>
+    <h2 class="subtitle">PROMOCIONES EXCLUSIVAS PARA NUESTROS CLIENTES VIP.</h2>
+
+    <button class="super small arrow-down light">
+      ORDENAR POR: % PROMOCIÓN
+    </button>
+
+    <div class="spacer"></div>
+
+    <ng-container *ngFor="let i of [1,2,3,4,5,6]">
+      <block
+             tint="#333333"
+             image="block1.jpg"
+             short="7 ENERO / 6 MARZO"
+             title="Textos descripción de las promociones, hasta tres líneas."
+             caption="BAJADA DE PROMOCIÓN."></block>
+
+      <div class="spacer"></div>
+    </ng-container>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    <h2 class="separator-title white">
+      <span class="icon discount"></span>
+      PROMOCIONES
+    </h2>
+    <ion-slides [options]="{spaceBetween: 10}" class="overflow">
+      <ion-slide *ngFor="let i of [1,2,3]">
+        <block
+               tint="#EC0127"
+               image="block1.jpg"
+               short="7 ENERO / 6 MARZO"
+               title="Textos descripción de las promociones, hasta tres líneas."
+               caption="BAJADA DE PROMOCIÓN."></block>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="spacer"></div>
+
+    <button class="super red" [routerLink]="['/tabs/discounts']">
+      <span class="icon discount"></span>
+      Ver todas las promociones
+    </button>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    <h2 class="separator-title gray">
+      <span class="icon store"></span>
+      NUESTRAS TIENDAS
+    </h2>
+    <ion-slides [options]="{spaceBetween: 10, slidesPerView: 3}" class="overflow">
+      <ion-slide *ngFor="let i of [1,2,3,4,5,6]" [routerLink]="['/store-detail']">
+        <block type="circle"></block>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="spacer"></div>
+
+    <button class="super" [routerLink]="['/tabs/stores']">
+      <span class="icon store"></span>
+      Ver todas las tiendas
+    </button>
+  </div>
+</ion-content>

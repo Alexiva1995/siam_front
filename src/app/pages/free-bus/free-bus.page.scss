@@ -1,0 +1,120 @@
+ion-content {
+    --background: #ededee;
+    --color: #626262;
+}
+google-maps {
+    display: block;
+    width: 100%;
+    height: 78vh;
+}
+
+.selector-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 27px;
+
+    button {
+        color: #626262;
+        position: relative;
+        font-family: "Nunito SemiBold";
+        font-size: 10px;
+        border: 1px solid #707070;
+        height: 26px;
+        border-radius: 26px;
+        // padding: 0 19px;
+        &:not(:last-child) {
+            margin-right: 5px;
+        }
+        flex: 1 1 0px;
+
+        &.active {
+            color: #fff;
+            &:after {
+                content: "";
+                display: block;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background-color: #f42434;
+                position: absolute;
+                bottom: -17px;
+                left: calc(50% - 3px);
+            }
+            &.route1 {
+                border-color: #E8007D;
+                background-color: #E8007D;
+            }
+            &.route2 {
+                border-color: #1772BB;
+                background-color: #1772BB;
+            }
+            &.route3 {
+                border-color: #EE680F;
+                background-color: #EE680F;
+            }
+            &.route4 {
+                border-color: #009D40;
+                background-color: #009D40;
+            }
+        }
+    }
+}
+
+h1 {
+    font-family: "Nunito SemiBold";
+    font-size: 18px;
+    border-top: 1px solid #626262;
+    border-bottom: 1px solid #626262;
+    margin: 10px 0 20px;
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+h2 {
+    font-family: "Nunito Bold";
+    font-size: 16px;
+    margin: 25px 0 10px;
+    &:after {
+        content: "";
+        height: 1px;
+        width: 20px;
+        background-color: #626262;
+        display: block;
+        margin: 15px 0;
+    }
+}
+ul {
+    font-family: "Nunito";
+    font-size: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 50px 10px;
+    li {
+        margin: 8px 0;
+        padding: 0;
+        text-transform: uppercase;
+    }
+}
+p.conditions {
+    font-family: "Nunito";
+    font-size: 12px;
+    color: #94a0a2;
+}
+
+div.hours {
+    i.clock {
+        width: 10px;
+        height: 10px;
+        background-image: url("/assets/icon/time.svg");
+        margin-right: 15px;
+    }
+
+    display: flex;
+    align-items: center;
+
+    font-family: "Nunito SemiBold";
+    font-size: 10px;
+    color: #94a0a2;
+    background-color: #ffffff;
+    border-radius: 26px;
+    padding: 8px 20px;
+}

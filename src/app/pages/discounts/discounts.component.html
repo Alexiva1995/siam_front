@@ -1,0 +1,111 @@
+<ng-container *ngIf="type == 'slider'">
+  <h2 class="separator-title {{ vip ? 'vip' : 'gray' }}">
+    <span class="icon discount"></span>
+    <ng-container *ngIf="!only_favs">
+      {{ vip ? ('PROMOCIONES VIP' | translate) : ('PROMOCIONES' | translate) }}
+    </ng-container>
+    <ng-container *ngIf="only_favs">
+      {{ vip ? ('PROMOCIONES VIP FAVORITAS' | translate) : ('PROMOCIONES FAVORITAS' | translate) }}
+    </ng-container>
+  </h2>
+  <ion-slides [options]="{spaceBetween: 10}" class="overflow" *ngIf="discounts && !vip">
+    <ng-container *ngFor="let item of discounts">
+      <ion-slide *ngIf="(!only_favs || item.user_fav) && !item.vip">
+        <block
+               (click)="gotoDetail(item)"
+               tint="#EC0127"
+               [image]="item.image"
+               [short]="(item.date_from ? (item.date_from | date:'d MMMM') : '') + (item.date_from && item.date_to ? ' / ' : '') + (item.date_to ? (item.date_to | date:'d MMMM') : '')"
+               [title]="item.title"
+               [caption]="item.caption"
+               (onSaveFav)="saveFav(item)"
+               [fav]="item.user_fav"
+               [favorite]="user ? true : false"></block>
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+
+  <div class="spacer" *ngIf="!vip && discounts?.length"></div>
+
+  <ion-slides [options]="{spaceBetween: 10}" class="overflow" *ngIf="vip && has_vip">
+    <ng-container *ngFor="let item of discounts">
+      <ion-slide *ngIf="(!only_favs || item.user_fav) && item.vip">
+        <block
+               [disabled]="!user && vip ? true : false"
+               (click)="gotoDetail(item)"
+               tint="#A88336"
+               [image]="item.image"
+               [short]="(item.date_from ? (item.date_from | date:'d MMMM') : '') + (item.date_from && item.date_to ? ' / ' : '') + (item.date_to ? (item.date_to | date:'d MMMM') : '')"
+               [title]="item.title"
+               [caption]="item.caption"
+               (onSaveFav)="saveFav(item)"
+               [fav]="item.user_fav"
+               [favorite]="user ? true : false"></block>
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+
+  <div class="spacer" *ngIf="vip && has_vip"></div>
+
+  <button class="super vip" *ngIf="vip && !user" [routerLink]="['/login']" routerDirection="root">
+    <span class="icon unlock"></span>
+    {{ 'Regístrate para desbloquear' | translate }}
+  </button>
+
+  <button class="super vip" *ngIf="vip && user" [routerLink]="['/tabs/discounts']">
+    <span class="icon discount"></span>
+    {{ 'Ver todas las promociones VIP' | translate }}
+  </button>
+
+  <button class="super red" *ngIf="!vip" [routerLink]="['/tabs/discounts']">
+    <span class="icon discount"></span>
+    {{ 'Ver todas las promociones' | translate }}
+  </button>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+</ng-container>
+
+<ng-container *ngIf="type == 'list' && vip">
+  <h2 class="separator-title vip">
+    <span class="icon discount"></span>
+    {{ 'PROMOCIONES VIP' | translate }}
+  </h2>
+  <ng-container *ngFor="let item of discounts">
+    <block
+           *ngIf="item.vip"
+           (click)="gotoDetail(item)"
+           tint="#A88336"
+           [image]="item.image"
+           [short]="(item.date_from ? (item.date_from | date:'d MMMM') : '') + (item.date_from && item.date_to ? ' / ' : '') + (item.date_to ? (item.date_to | date:'d MMMM') : '')"
+           [title]="item.title"
+           [caption]="item.caption"
+           (onSaveFav)="saveFav(item)"
+           [fav]="item.user_fav"
+           [favorite]="user ? true : false"></block>
+
+    <div class="spacer" *ngIf="item.vip"></div>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="type == 'list' && !vip">
+  <h2 class="separator-title gray">
+    <span class="icon discount"></span>
+    {{ 'PROMOCIONES' | translate }}
+  </h2>
+  <ng-container *ngFor="let item of discounts">
+    <block
+           *ngIf="!item.vip"
+           (click)="gotoDetail(item)"
+           tint="#EC0127"
+           [image]="item.image"
+           [short]="(item.date_from ? (item.date_from | date:'d MMMM') : '') + (item.date_from && item.date_to ? ' / ' : '') + (item.date_to ? (item.date_to | date:'d MMMM') : '')"
+           [title]="item.title"
+           [caption]="item.caption"
+           (onSaveFav)="saveFav(item)"
+           [fav]="item.user_fav"
+           [favorite]="user ? true : false"></block>
+
+    <div class="spacer" *ngIf="!item.vip"></div>
+  </ng-container>
+</ng-container>

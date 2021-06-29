@@ -1,0 +1,7 @@
+{
+  "name": "SiamApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

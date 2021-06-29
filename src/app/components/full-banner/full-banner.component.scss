@@ -1,0 +1,109 @@
+.container {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    height: 100%;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 75%;
+        background: linear-gradient(0deg, rgba(236, 0, 26, 1) 10%, rgba(236, 0, 26, 0) 100%);
+        left: 0;
+        bottom: 0;
+    }
+    &.welcome {
+        &:before {
+            height: 100%;
+            background: linear-gradient(0deg, #ec0127 10%, rgba(236, 0, 39, 0.84) 50%, rgba(236, 0, 39, 0) 100%);
+        }
+    }
+    .block {
+        position: absolute;
+        bottom: 73px;
+        left: 0;
+        width: 100%;
+        padding: 0 24px 10px;
+    }
+    h2 {
+        font-family: "Cormorant Garamond";
+        font-weight: normal;
+        font-size: 62px;
+        color: #ffffff;
+        line-height: 51px;
+        margin: 0 0 25px;
+        text-transform: uppercase;
+    }
+    @media screen and (max-width: 320px) {
+        h2 {
+            font-size: 50px;
+        }
+    }
+    &.welcome {
+        h2 {
+            font-size: 48px;
+            line-height: 42px;
+            margin-bottom: 50px;
+        }
+    }
+    h3 {
+        font-family: "Nunito";
+        font-weight: normal;
+        font-size: 18px;
+        color: #ffffff;
+        letter-spacing: 0.09em;
+        margin: 0 0 27px;
+        height: 42px;
+        position: relative;
+        text-transform: uppercase;
+
+        &:not(.empty):before {
+            content: "";
+            width: 160px;
+            height: 1px;
+            background-color: #ffffff;
+            position: absolute;
+            left: 0;
+            top: -8px;
+        }
+    }
+    h4 {
+        font-family: "Nunito SemiBold";
+        font-weight: normal;
+        font-size: 11px;
+        color: #00ffd8;
+        margin: 0 0 12px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+    button.see-more {
+        font-family: "Nunito";
+        font-size: 14px;
+        color: #ffffff;
+        background: none;
+        border: 1px solid #ffffff;
+        padding: 13px 25px;
+        min-width: 160px;
+        border-radius: 20px;
+        bottom: 41px;
+    }
+    button.next {
+        font-family: "Nunito";
+        font-size: 12x;
+        color: #ffffff;
+        background: none;
+        border: none;
+        padding: 1px 40px 0 0;
+        margin: 0;
+        background: url("/assets/right-arrow.svg") right center no-repeat;
+        bottom: 50px;
+    }
+    button {
+        position: absolute;
+        left: 24px;
+    }
+    .welcome-logo {
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+
+  <header
+          backgroundImage="portada_noticias.jpg"
+          tint="rgba(0,0,0,0.65)"></header>
+  <!-- ALEMAR -->
+  <!-- [caption]="{iconClass: 'news',color: '#626262',backgroundColor: '#FFFFFF'}" -->
+
+  <div class="ion-padding">
+    <h1 class="title">{{ 'NOTICIAS' | translate }}</h1>
+
+    <news type="list"></news>
+  </div>
+</ion-content>

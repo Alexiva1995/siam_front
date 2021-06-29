@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()"></button>
+
+  <header
+          [backgroundProfileImage]="user?.image ? user.image : 'profile-placeholder.png'"
+          tint="rgba(0,0,0,0.65)"
+          (onIconClick)="takePhoto()"></header>
+
+  <div class="membership-card">
+    <img src="../../assets/card-logo.svg" alt="">
+    <h2>{{ user?.card_number | cardFormat }}</h2>
+    <h4>{{ 'Cliente VIP' | translate }}</h4>
+    <h3>{{ user?.name }} {{ user?.last_name }}</h3>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="ion-padding">
+    <form (submit)="saveChanges()" id="profile_form">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label position="stacked" mode="ios">{{ 'FECHA DE NACIMIENTO' | translate }}</ion-label>
+          <ion-datetime
+                        #myPicker
+                        cancelText="Cancelar"
+                        doneText="OK"
+                        [value]="birthdate | date:'yyyy-MM-dd'"
+                        placeholder="Seleccionar fecha"
+                        displayFormat="DD/MM/YYYY"
+                        monthShortNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"
+                        (ionChange)="updateDate(myPicker.value)"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" mode="ios">EMAIL</ion-label>
+          <ion-input name="email" [(ngModel)]="user.email" mode="ios" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" mode="ios">{{ 'TELÉFONO' | translate }}</ion-label>
+          <ion-input name="phone_number" [(ngModel)]="user.phone_number" mode="ios" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" mode="ios">{{ 'DIRECCIÓN' | translate }}</ion-label>
+          <ion-input name="address" [(ngModel)]="user.address" mode="ios" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" mode="ios">{{ 'CÓDIGO POSTAL' | translate }}</ion-label>
+          <ion-input name="zip_code" [(ngModel)]="user.zip_code" mode="ios" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" mode="ios">{{ 'CAMBIA TU CLAVE' | translate }}</ion-label>
+          <ion-input name="password" [(ngModel)]="user.password" mode="ios" [type]="passwordType" value=""></ion-input>
+          <button type="button" class="discover" (click)="hideShowPassword()">
+            <ion-icon [name]="passwordIcon"></ion-icon>
+          </button>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <button class="super no-arrow" type="submit" form="profile_form">
+      <span class="icon edit"></span>
+      {{ 'Guardar cambios' | translate }}
+    </button>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    <stores type="slider" [only_favs]="true"></stores>
+
+    <discounts type="slider" [vip]="true" [only_favs]="true"></discounts>
+    <discounts type="slider" [vip]="false" [only_favs]="true"></discounts>
+
+    <events type="slider" [only_favs]="true"></events>
+
+    <button class="super" (click)="logout()">
+      {{ 'CERRAR SESIÓN' | translate }}
+    </button>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+  </div>
+</ion-content>

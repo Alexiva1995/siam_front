@@ -1,0 +1,3 @@
+<button [routerLink]="['/tabs/profile']" *ngIf="user && visible">
+  <img src="{{ user?.image ? user.image : '../../assets/profile-placeholder.png' }}" alt="">
+</button>

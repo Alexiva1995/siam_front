@@ -1,0 +1,56 @@
+span.icon {
+    background-color: #94a0a2;
+    margin-bottom: 6px;
+    width: 23px;
+    height: 23px;
+    &:not(.ellipsis-vertical) {
+        mask-size: 23px;
+    }
+    &.bus {
+        width: 27px;
+        mask-size: 27px;
+    }
+}
+
+ion-tab-bar {
+    padding: 0 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: absolute;
+    width: calc(100% - 20px);
+    left: 0;
+    bottom: 0;
+
+    ion-tab-button {
+        position: relative;
+        &:after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            bottom: 4px;
+            left: calc(50% - 3px);
+            background-color: rgba(255, 0, 0, 0);
+            transition: background-color 0.3s linear;
+        }
+        &.tab-selected {
+            &:after {
+                background-color: rgba(255, 0, 0, 1);
+            }
+        }
+    }
+}
+
+/* iphone X */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    ion-tab-bar {
+        padding: 5px 10px 25px;
+    }
+}
+/* iphone 11 */
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+    ion-tab-bar {
+        padding: 5px 10px 25px;
+    }
+}

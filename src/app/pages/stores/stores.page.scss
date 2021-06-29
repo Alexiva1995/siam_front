@@ -1,0 +1,16 @@
+block:focus {
+    outline: none;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+
+    :not(:last-child) {
+        margin-right: 5px;
+    }
+}
+
+button.super.small {
+    width: 50%;
+}

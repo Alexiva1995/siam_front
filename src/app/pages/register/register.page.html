@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-register-container">
+  <div class="container">
+    <div class="section top">
+      <button class="back" (click)="goBack()"></button>
+      <div class="spacer"></div>
+      <img src="../../assets/logo.svg" class="logo">
+      <div class="spacer"></div>
+    </div>
+    <ng-container *ngIf="!registrationDone">
+      <h1>{{ 'REGISTRO' | translate }}</h1>
+      <form (submit)="register()" id="registration_form" autocomplete="off">
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label position="stacked" mode="ios">{{ 'Nombre' | translate }}</ion-label>
+            <ion-input name="name" [(ngModel)]="data.name" required mode="ios" type="text" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked" mode="ios">{{ 'Apellido' | translate }}</ion-label>
+            <ion-input name="last_name" [(ngModel)]="data.last_name" required mode="ios" type="text" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked" mode="ios">Email</ion-label>
+            <ion-input name="email" [(ngModel)]="data.email" required mode="ios" type="email" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked" mode="ios">{{ 'Contraseña' | translate }}</ion-label>
+            <ion-input name="password" [(ngModel)]="data.password" required mode="ios" [type]="passwordType" value=""></ion-input>
+            <button type="button" class="discover" (click)="hideShow('password')">
+              <ion-icon [name]="passwordIcon"></ion-icon>
+            </button>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked" mode="ios">{{ 'Confirmar contraseña' | translate }}</ion-label>
+            <ion-input name="password_confirmation" [(ngModel)]="data.password_confirmation" required mode="ios" [type]="passwordConfirmationType" value=""></ion-input>
+            <button type="button" class="discover" (click)="hideShow('password_confirmation')">
+              <ion-icon [name]="passwordConfirmationIcon"></ion-icon>
+            </button>
+          </ion-item>
+        </ion-list>
+      </form>
+
+      <div class="section bottom">
+        <button type="submit" form="registration_form" class="big white">{{ 'Regístrate' | translate }}</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="registrationDone">
+      <h1>REVISA<br>TU CASILLA<br>DE EMAIL</h1>
+      <p>Para confirmar tu cuenta</p>
+      <div class="section bottom">
+        <button type="button" class="big white" [routerLink]="['/login']">Ingresar</button>
+      </div>
+    </ng-container>
+  </div>
+</ion-content>

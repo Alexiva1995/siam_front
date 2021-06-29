@@ -1,0 +1,33 @@
+<div class="container" [class.fav]="fav">
+  <ng-container *ngIf="backgroundImage">
+    <div class="backgroundImage" [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}"></div>
+    <div class="gradient" [ngStyle]="{'background': 'linear-gradient(0deg, ' + tint + ' 10%, rgba(0,0,0,0) 100%)'}"></div>
+  </ng-container>
+  <ng-container *ngIf="backgroundProfileImage">
+    <div class="backgroundProfileImage" [ngStyle]="{'background-image': 'url(' + backgroundProfileImage + ')'}"></div>
+    <div class="gradient profile" [ngStyle]="{'background': 'linear-gradient(0deg, ' + tint + ' 10%, rgba(0,0,0,0) 100%)'}"></div>
+
+    <button class="caption" (click)="iconClick()">
+      <span class="icon edit"></span>
+    </button>
+  </ng-container>
+
+  <ion-slides *ngIf="gallery" pager="true" class="pager-left">
+    <ion-slide *ngFor="let item of gallery" class="backgroundImage" [ngStyle]="{'background-image': 'url(' + item + ')'}">
+      <div class="gradient" [ngStyle]="{'background': 'linear-gradient(0deg, ' + tint + ' 10%, rgba(0,0,0,0) 100%)'}"></div>
+    </ion-slide>
+  </ion-slides>
+
+  <p class="caption" *ngIf="caption?.text || caption?.iconClass" [ngStyle]="{'color': caption.color, 'background-color': caption.backgroundColor }" [class.with-text]="caption.text">
+    <span *ngIf="caption.iconClass" class="icon {{ caption.iconClass }}" [ngStyle]="{'background-color': caption.color }"></span>
+    {{ caption.text }}
+  </p>
+  <div class="icons">
+    <button *ngIf="favorite" class="icon-fav" (click)="saveFav($event)">
+      <ion-icon name="{{ fav ? 'heart' : 'heart-outline' }}"></ion-icon>
+    </button>
+    <button *ngIf="share" (click)="doShare($event)">
+      <ion-icon name="share-social-outline"></ion-icon>
+    </button>
+  </div>
+</div>
