@@ -1,9 +1,11 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://siam.eoscr.com',
+  // apiBaseUrl: 'https://siam.eoscr.com',
+  apiBaseUrl: 'http://10.0.2.2/siam-app/public',
   oauth: {
-    client_id: 1,
-    client_secret: 'XWpPVwsJmnNdUB5cAA4RoluXkclhzTuUVJ4bKUaQ'
+    client_id: 9,
+    // client_secret: 'XWpPVwsJmnNdUB5cAA4RoluXkclhzTuUVJ4bKUaQ'
+    client_secret:'nfD7lpcAuTwolkSV4Alzm93qjBApRFDbUPIF1eqO'
   },
   GoogleApiKey: 'AIzaSyCOZvSaYp9B-npv30udW80glEV5Cn0ehwc',
   AndroidOAuthClientId: '680891061209-8qo64oikgd38her42ceubl00racq1h5g.apps.googleusercontent.com',
