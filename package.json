@@ -40,6 +40,7 @@
     "class-transformer": "^0.4.0",
     "cordova-ios": "6.2.0",
     "firebase": "^8.4.2",
+    "globalthis": "^1.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -100,8 +101,8 @@
       "cordova-plugin-network-information": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
