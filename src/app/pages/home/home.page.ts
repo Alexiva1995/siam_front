@@ -31,6 +31,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    console.log('HomePage');
     this.subs.forEach(sub => {
       sub.unsubscribe();
     });

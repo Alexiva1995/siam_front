@@ -8,6 +8,8 @@ import { LoadingService } from "src/app/services/loading.service";
 import { LoginService } from "src/app/services/login.service";
 import { RequestsService } from "src/app/services/requests.service";
 import { environment } from "src/environments/environment";
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -40,14 +42,15 @@ export class LoginPage implements OnInit {
     private navController: NavController,
     public app: AppService,
     // ALEMAR
-    // private afAuth: AngularFireAuth,
+    private afAuth: AngularFireAuth,
     private platform: Platform,
     // ALEMAR
     // private googlePlus: GooglePlus,
     private loginService: LoginService,
     // ALEMAR
     private params: DataParamsService,
-    private signInWithApple: SignInWithApple
+    private signInWithApple: SignInWithApple,
+    private googlePlus: GooglePlus
   ) {
     this.sub = this.loginService.getCurrentUser().subscribe(user => {
       if (user) {
@@ -58,6 +61,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    console.log('LoginPage');
     if (this.platform.is('android')) {
       this.currentPlatform = 'android';
     } else if (this.platform.is('ios')) {
@@ -66,9 +70,9 @@ export class LoginPage implements OnInit {
   }
 
   async doFbLogin() {
-    //the permissions your facebook app needs from the user
+    // //the permissions your facebook app needs from the user
     // const permissions = ["public_profile", "email"];
-    // ALEMAR
+    // // ALEMAR
     // this.fb.login(permissions).then(response => {
     //   this.loadingService.present();
     //   let accessToken = response.authResponse.accessToken;
@@ -131,12 +135,19 @@ export class LoginPage implements OnInit {
 
   async loginGoogleMobile(webClientId) {
     // ALEMAR
+
+    this.googlePlus.login({
+      'webClientId': webClientId,
+      'offline': true
+    })
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
     // console.log(webClientId);
     // const res = await this.googlePlus.login({
     //   'webClientId': webClientId,
     //   'offline': true
     // });
-    // // console.log(res);
+    // console.log(res);
     // this.loadingService.present();
     // this.requests.loginUserWithGoogle(res.accessToken).subscribe(response => {
     //   this.login.setCurrentToken(response);

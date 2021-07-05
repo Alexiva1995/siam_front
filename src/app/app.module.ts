@@ -14,8 +14,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Device } from '@ionic-native/device/ngx';
 import { SignInWithApple } from '@ionic-native/sign-in-with-apple/ngx';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { Network } from '@ionic-native/network/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 // ALEMAR
 // import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 // import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -43,7 +45,8 @@ registerLocaleData(localeEs, 'es-ES');
     HttpClientModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [
     // StatusBar,
@@ -57,7 +60,7 @@ registerLocaleData(localeEs, 'es-ES');
     // ALEMAR
     Device,
     // FCM,
-    // GooglePlus,
+    GooglePlus,
     SignInWithApple,
     // Camera
     Network
