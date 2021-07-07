@@ -11,6 +11,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="android-targetSdkVersion" value="28" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -23,6 +24,7 @@
             <application android:networkSecurityConfig="@xml/network_security_config" />
         </edit-config>
         <resource-file src="resources/android/xml/network_security_config.xml" target="app/src/main/res/xml/network_security_config.xml" />
+        <resource-file src="google-services.json" target="app/google-services.json" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -104,8 +106,8 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-googleplus" source="npm">
-        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.680891061209-8qo64oikgd38her42ceubl00racq1h5g" />
-        <variable name="WEB_APPLICATION_CLIENT_ID" value="680891061209-hi4nnf8g01vpd5t9b6ihg4oppquogcnq.apps.googleusercontent.com" />
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.736998607305-abumidn1575sfn78sl2di2n0v6vac17r" />
+        <variable name="WEB_APPLICATION_CLIENT_ID" value="736998607305-abumidn1575sfn78sl2di2n0v6vac17r.apps.googleusercontent.com" />
     </plugin>
     <allow-navigation href="http://192.168.0.14:8100" sessionid="a3c5d816" />
 </widget>

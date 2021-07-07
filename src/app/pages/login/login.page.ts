@@ -141,7 +141,7 @@ export class LoginPage implements OnInit {
       'offline': true
     })
     .then(res => console.log(res))
-    .catch(err => console.error(err));
+    .catch(err => console.log(err));
     // console.log(webClientId);
     // const res = await this.googlePlus.login({
     //   'webClientId': webClientId,

@@ -8,8 +8,10 @@ export const environment = {
     client_secret:'nfD7lpcAuTwolkSV4Alzm93qjBApRFDbUPIF1eqO'
   },
   GoogleApiKey: 'AIzaSyCOZvSaYp9B-npv30udW80glEV5Cn0ehwc',
-  AndroidOAuthClientId: '680891061209-8qo64oikgd38her42ceubl00racq1h5g.apps.googleusercontent.com',
-  WebOAuthClientId: '680891061209-hi4nnf8g01vpd5t9b6ihg4oppquogcnq.apps.googleusercontent.com',
+  //AndroidOAuthClientId: '680891061209-8qo64oikgd38her42ceubl00racq1h5g.apps.googleusercontent.com',
+  AndroidOAuthClientId: '736998607305-m8d2qkb5ft4bfmf0v6u1769e611jg6ok.apps.googleusercontent.com',
+  //WebOAuthClientId: '680891061209-hi4nnf8g01vpd5t9b6ihg4oppquogcnq.apps.googleusercontent.com',
+  WebOAuthClientId: '736998607305-abumidn1575sfn78sl2di2n0v6vac17r.apps.googleusercontent.com',
   iOSOAuthClientId: '680891061209-ijaqj2qa58q6a5c53iib9uoqtt0g8kai.apps.googleusercontent.com',
   firebaseConfig: {
     apiKey: "AIzaSyCmN8bupFoZiC-XDzMnykHiLyvItF6-mEo",

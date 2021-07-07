@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "736998607305",
+    "project_id": "siam-1542904035799",
+    "storage_bucket": "siam-1542904035799.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736998607305:android:038d37ef331ca2d6174018",
+        "android_client_info": {
+          "package_name": "com.siamapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736998607305-m8d2qkb5ft4bfmf0v6u1769e611jg6ok.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.siamapp",
+            "certificate_hash": "35c59423698eb921ff825b78cad52382176c2f88"
+          }
+        },
+        {
+          "client_id": "736998607305-abumidn1575sfn78sl2di2n0v6vac17r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMulhTSePLLnixzuvDmiqIrdCTTgaE_Fw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736998607305-abumidn1575sfn78sl2di2n0v6vac17r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "736998607305-3j7929cl2i0hhv8c8utj6qhqd5u08mjh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ccsiammallapp.test"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
